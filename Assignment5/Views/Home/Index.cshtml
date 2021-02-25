@@ -36,25 +36,28 @@
         <tbody>
             @foreach (var x in Model.Books)
             {
-                <tr>
-                    <td>@x.BookId</td>
-                    <td>@x.Title</td>
-                    <td>@x.AuthorFirstName</td>
-                    <td>@x.AuthorMiddleName</td>
-                    <td>@x.AuthorLastName</td>
-                    <td>@x.Publisher</td>
-                    <td>@x.ISBN</td>
-                    <td>@x.Classification</td>
-                    <td>@x.Category</td>
-                    <td>@x.Pages</td>
-                    <td>$@x.Price</td>
-                </tr>
+            <tr>
+                <!--new bootstrap here: badge-info, badge-pill, font-weight-bold-->
+                <td>@x.BookId</td>
+                <td class="font-weight-bold">@x.Title</td>
+                <td>@x.AuthorFirstName</td>
+                <td>@x.AuthorMiddleName</td>
+                <td>@x.AuthorLastName</td>
+                <td>@x.Publisher</td>
+                <td>@x.ISBN</td>
+                <td><span class="badge-info badge-pill">@x.Classification</span></td>
+                <td class="badge-info badge-pill">@x.Category</td>
+                <td>@x.Pages</td>
+                <td>$@x.Price</td>
+            </tr>
             }
         </tbody>
     </table>
 </div>
 
 <!--This div contains navigation between the different pages of books-->
-<div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
-     page-class="btn rounded-circle bk-dark" page-class-normal="btn-outline-dark"
-     page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+<div class="text-center">
+    <div page-model="@Model.PagingInfo" page-action="Index" page-class-enabled="true"
+         page-class="btn" page-class-normal="btn-outline-dark"
+         page-class-selected="btn-primary" class="btn-group pull-right m-1 text-center"></div>
+</div>
