@@ -1,4 +1,6 @@
-﻿using System;
+﻿//this model contains data necessary for determining how many pages their are and what needs to go on them
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

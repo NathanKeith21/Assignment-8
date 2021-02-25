@@ -17,14 +17,14 @@ namespace Assignment5.Controllers
         private readonly ILogger<HomeController> _logger;
 
         private ILibraryRepository _repository;
-
+        //this line is new and helps determine how many books to display on each page
         public int PageSize = 5;
         public HomeController(ILogger<HomeController> logger, ILibraryRepository repository)
         {
             _logger = logger;
             _repository = repository;
         }
-
+        //this part is the biggest change for assignment 6; it creates a view that is passed BookListViewModel, which contains info for the books to be displayed on this particular page
         public IActionResult Index(int page = 1)
         {
             return View(new BookListViewModel

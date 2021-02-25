@@ -55,7 +55,7 @@ namespace Assignment5
             app.UseRouting();
 
             app.UseAuthorization();
-
+            //This is the new way to build the endpoints, with P followed by a number to indicate on which page of the list of books you are on
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

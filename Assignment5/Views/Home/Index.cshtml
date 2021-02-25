@@ -1,4 +1,4 @@
-﻿<!--This file provides the html for the main page, including the database table of books-->
+﻿<!--This file provides the html for the main page, including some of the books from the database and navigation between pages-->
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -9,7 +9,14 @@
     <h1>Online Bookstore</h1>
 </div>
 
+<!--This div contains several books from the database-->
 <div>
+
+
+
+
+
+
     <table class="table">
         <thead>
             <tr>
@@ -46,6 +53,8 @@
         </tbody>
     </table>
 </div>
+
+<!--This div contains navigation between the different pages of books-->
 <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
-     page-class="btn" page-class-normal="btn-outline-dark"
+     page-class="btn rounded-circle bk-dark" page-class-normal="btn-outline-dark"
      page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>

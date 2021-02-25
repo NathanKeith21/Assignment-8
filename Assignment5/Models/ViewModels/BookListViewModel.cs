@@ -1,4 +1,6 @@
-﻿using System;
+﻿//this model houses the book object and the paginginfo object from their respective models
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

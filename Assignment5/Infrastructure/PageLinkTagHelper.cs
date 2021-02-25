@@ -1,4 +1,6 @@
-﻿using Assignment5.Models.ViewModels;
+﻿//this page includes the tag helper that helps with the navigation on the bottom of the page that links between pages
+
+using Assignment5.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -11,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Assignment5.Infrastructure
 {
+    //this part helps the tag helper function by initializing variables and creating connections
     [HtmlTargetElement("div", Attributes = "page-model")]
     public class PageLinkTagHelper : TagHelper
     {
@@ -30,6 +33,7 @@ namespace Assignment5.Infrastructure
         public string PageClass { get; set; }
         public string PageClassNormal { get; set; }
         public string PageClassSelected { get; set; }
+        //this part generates the html for the navigation div
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             IUrlHelper urlHelper = urlHelperFactory.GetUrlHelper(ViewContext);

@@ -1,4 +1,4 @@
-﻿//This file initializes the data in the database, providing 10 entries
+﻿//This file initializes the data in the database, providing the entries
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
