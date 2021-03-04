@@ -9,22 +9,17 @@
     <h1>Online Bookstore</h1>
 </div>
 
+<vc:navigation-menu />
+<br />
+
 <!--This div contains several books from the database-->
 <div>
-
-
-
-
-
-
     <table class="table">
         <thead>
             <tr>
                 <th>Book ID</th>
                 <th>Title</th>
-                <th>Author First Name</th>
-                <th>Author Middle Name</th>
-                <th>Author Last Name</th>
+                <th>Author</th>
                 <th>Publisher</th>
                 <th>ISBN</th>
                 <th>Classification</th>
@@ -34,22 +29,10 @@
             </tr>
         </thead>
         <tbody>
+            <!--This new section connects to the ProjectSummary partial view, where I am now storing the table contents in a more encapsulated way-->
             @foreach (var x in Model.Books)
             {
-            <tr>
-                <!--new bootstrap here: badge-info, badge-pill, font-weight-bold-->
-                <td>@x.BookId</td>
-                <td class="font-weight-bold">@x.Title</td>
-                <td>@x.AuthorFirstName</td>
-                <td>@x.AuthorMiddleName</td>
-                <td>@x.AuthorLastName</td>
-                <td>@x.Publisher</td>
-                <td>@x.ISBN</td>
-                <td><span class="badge-info badge-pill">@x.Classification</span></td>
-                <td><span class="badge-info badge-pill">@x.Category</span></td>
-                <td>@x.Pages</td>
-                <td>$@x.Price</td>
-            </tr>
+                <partial name="ProjectSummary" model="x" />
             }
         </tbody>
     </table>
@@ -59,5 +42,7 @@
 <div class="text-center">
     <div page-model="@Model.PagingInfo" page-action="Index" page-class-enabled="true"
          page-class="btn" page-class-normal="btn-outline-dark"
-         page-class-selected="btn-primary" class="btn-group pull-right m-1 text-center"></div>
+         page-class-selected="btn-primary"
+         page-url-category="@Model.CurrentCategory"
+         class="btn-group pull-right m-1 text-center"></div>
 </div>

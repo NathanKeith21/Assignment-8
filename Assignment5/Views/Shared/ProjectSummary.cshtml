@@ -1,0 +1,15 @@
+﻿<!--This page contains the book info output in a more encapsulated way-->
+
+@model Book
+<tr>
+    <!--new bootstrap here: badge-info, badge-pill, font-weight-bold-->
+    <td>@Model.BookId</td>
+    <td class="font-weight-bold">@Model.Title</td>
+    <td>@Model.AuthorLastName, @Model.AuthorFirstName @Model.AuthorMiddleName</td>
+    <td>@Model.Publisher</td>
+    <td>@Model.ISBN</td>
+    <td><span class="badge-info badge-pill">@Model.Classification</span></td>
+    <td><span class="badge-info badge-pill">@Model.Category</span></td>
+    <td>@Model.Pages</td>
+    <td>$@Model.Price</td>
+</tr>

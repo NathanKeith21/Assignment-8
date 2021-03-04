@@ -25,11 +25,13 @@ namespace Assignment5.Controllers
             _repository = repository;
         }
         //this part is the biggest change for assignment 6; it creates a view that is passed BookListViewModel, which contains info for the books to be displayed on this particular page
-        public IActionResult Index(int page = 1)
+        //in assignment 7, I added CurrentCategory to keep track of the category the user would like to filter by
+        public IActionResult Index(string category, int page = 1)
         {
             return View(new BookListViewModel
             {
                 Books = _repository.Books
+                .Where(p => category == null || p.Category == category)
                 .OrderBy(p => p.BookId)
                 .Skip((page - 1) * PageSize)
                 .Take(PageSize)
@@ -38,8 +40,10 @@ namespace Assignment5.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalNumItems = _repository.Books.Count()
-                }
+                    TotalNumItems = category == null ? _repository.Books.Count() :
+                        _repository.Books.Where (x => x.Category == category).Count()
+                },
+                CurrentCategory = category
             });
         }
 

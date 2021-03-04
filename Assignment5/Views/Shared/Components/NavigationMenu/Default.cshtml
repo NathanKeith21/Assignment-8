@@ -1,0 +1,22 @@
+﻿<!--This page is used to create the navigation menu for filtering by category, this is used by the Index.cshtml file-->
+
+@model IEnumerable<string>
+
+<div>
+    <h4>Filter by Category: </h4>
+
+    <a class="btn btn-outline-secondary" asp-action="Index" asp-controller="Home"
+       asp-route-category="">
+        Home
+    </a>
+
+    @foreach (string category in Model)
+    {
+        <!--note the condition in the class that colors the selected category differently-->
+        <a class="btn @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")"
+           asp-action="Index" asp-controller="Home"
+           asp-route-category="@category" asp-route-page="1">
+            @category
+        </a>
+    }
+</div>
