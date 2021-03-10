@@ -48,7 +48,7 @@ namespace Assignment5.Infrastructure
                 TagBuilder tag = new TagBuilder("a");
 
                 //I've made this part more dynamic with the PageUrlValues object to keep track of the page
-                PageUrlValues["page"] = i;
+                PageUrlValues["pageNum"] = i;
                 tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
 
                 if (PageClassEnabled)

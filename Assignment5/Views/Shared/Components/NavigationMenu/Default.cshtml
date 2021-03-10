@@ -15,7 +15,7 @@
         <!--note the condition in the class that colors the selected category differently-->
         <a class="btn @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")"
            asp-action="Index" asp-controller="Home"
-           asp-route-category="@category" asp-route-page="1">
+           asp-route-category="@category" asp-route-pageNum="1">
             @category
         </a>
     }

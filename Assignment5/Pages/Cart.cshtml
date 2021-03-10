@@ -1,0 +1,32 @@
+﻿@page
+@model Assignment5.Pages.CartModel
+
+@{
+}
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.Cart.Lines)
+            {
+                <tr>
+                    <td>@line.Book.Title</td><td>@line.Quantity</td><td>$@line.Book.Price</td><td>@((line.Quantity * line.Book.Price).ToString("c"))</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total:</td>
+                <td>@Model.Cart.ComputeTotalSum().ToString("c")</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

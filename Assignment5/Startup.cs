@@ -30,10 +30,16 @@ namespace Assignment5
             services.AddControllersWithViews();
             services.AddDbContext<LibraryBookDbContext> (options =>
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:LibraryConnection"]);
+                //options.UseSqlServer(Configuration["ConnectionStrings:LibraryConnection"]);
+                options.UseSqlite(Configuration["ConnectionStrings:LibraryConnection"]);
             });
 
             services.AddScoped<ILibraryRepository, EFLibraryRepository>();
+
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +58,8 @@ namespace Assignment5
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -59,11 +67,11 @@ namespace Assignment5
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("catpage",
-                    "{Category}/P{page:int}",
+                    "{Category}/P{pageNum:int}",
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapControllerRoute("page",
-                    "P{page:int}",
+                    "P{pageNum:int}",
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapControllerRoute("category",
@@ -72,12 +80,14 @@ namespace Assignment5
 
                 endpoints.MapControllerRoute(
                     "pagination",
-                    "P{page}",
+                    "P{pageNum}",
                     new { Controller = "Home", action = "Index" });
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
 
             SeedData.EnsurePopulated(app);
+
         }
     }
 }
