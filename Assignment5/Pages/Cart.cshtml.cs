@@ -12,6 +12,7 @@ namespace Assignment5.Pages
     public class CartModel : PageModel
     {
         private ILibraryRepository repository;
+        
         public CartModel (ILibraryRepository repo)
         {
             repository = repo;
@@ -37,6 +38,13 @@ namespace Assignment5.Pages
             HttpContext.Session.SetJson("cart", Cart);
 
             return RedirectToPage(new { returnUrl = ReturnUrl });
+        }
+
+        public IActionResult OnPostRemove(long bookId, string returnUrl)
+        {
+            Cart.RemoveLine(Cart.Lines.First(cl =>
+                cl.Book.BookId == bookId).Book);
+            return RedirectToPage(new { returnUrl = returnUrl });
         }
     }
 }
