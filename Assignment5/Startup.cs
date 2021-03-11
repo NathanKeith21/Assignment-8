@@ -42,7 +42,7 @@ namespace Assignment5
             services.AddDistributedMemoryCache();
             services.AddSession();
 
-            //services.AddScoped(sp => SessionCart.GetCart(sp));
+            services.AddScoped(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 

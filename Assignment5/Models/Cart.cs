@@ -34,7 +34,7 @@ namespace Assignment5.Models
 
         public virtual void Clear() => Lines.Clear();
 
-        public decimal ComputeTotalSum() => (decimal)Lines.Sum(e => e.Book.Price);
+        public decimal ComputeTotalSum() => (decimal)Lines.Sum(e => e.Book.Price*e.Quantity);
 
         public class CartLine
         {

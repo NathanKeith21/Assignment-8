@@ -13,29 +13,24 @@ namespace Assignment5.Pages
     {
         private ILibraryRepository repository;
         
-        public CartModel (ILibraryRepository repo)
+        public CartModel (ILibraryRepository repo, Cart cartservice)
         {
             repository = repo;
+            Cart = cartservice;
         }
         public Cart Cart { get; set; }
         public string ReturnUrl { get; set; }
 
-
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
-            Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
         }
 
         public IActionResult OnPost(long bookId, string returlUrl)
         {
             Book book = repository.Books.FirstOrDefault(p => p.BookId == bookId);
 
-            Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
-
             Cart.AddItem(book, 1);
-
-            HttpContext.Session.SetJson("cart", Cart);
 
             return RedirectToPage(new { returnUrl = ReturnUrl });
         }
