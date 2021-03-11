@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿//This new file allows the session to function properly, so the program remembers what is in the cart as the user travels between pages
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;

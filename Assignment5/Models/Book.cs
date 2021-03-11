@@ -1,4 +1,4 @@
-﻿//This file determines how an entry in the database is structured, including the fields, the primary key, and verification that the ISBN is formatted properly
+﻿//This file determines how an entry in the book database is structured, including the fields, the primary key, and verification that the ISBN is formatted properly
 
 using System;
 using System.Collections.Generic;

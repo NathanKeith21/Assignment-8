@@ -1,4 +1,5 @@
-﻿using System;
+﻿//This model is used to structure the data that keeps track of which books the user wants to buy and how many of each
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿//this model adds and removes books and lines from the session that keeps track of the cart
+using System;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;

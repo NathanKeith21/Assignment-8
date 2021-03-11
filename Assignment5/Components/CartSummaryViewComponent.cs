@@ -1,4 +1,5 @@
-﻿using Assignment5.Models;
+﻿//This new page helps the cart summary work by passing in the cart properly
+using Assignment5.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
